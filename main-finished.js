@@ -50,6 +50,14 @@ class EvilCircle extends Shape {
             }
         });
     }
+
+    draw() {
+        ctx.beginPath();
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = color;
+        ctx.arc(this.x, this.y, size, 0, 2 * Math.PI);
+        ctx.stroke();
+    }
 }
 
 class Ball extends Shape {
