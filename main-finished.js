@@ -17,12 +17,18 @@ function randomRGB() {
     return `rgb(${random(0, 255)}, ${random(0, 255)}, ${random(0, 255)})`;
 }
 
-class Ball {
-    constructor(x, y, velX, velY, color, size) {
+class Shape {
+    constructor(x, y, velX, velY) {
         this.x = x;
         this.y = y;
         this.velX = velX;
         this.velY = velY;
+    }
+}
+
+class Ball extends Shape {
+    constructor(x, y, velX, velY, color, size) {
+        super(x, y, velX, velY);
         this.color = color;
         this.size = size;
     }
@@ -78,7 +84,7 @@ while (balls.length < 25) {
         // ball position always drawn at least one ball width
         // away from the edge of the canvas, to avoid drawing errors
         random(0 + size, width - size),
-        random(0 + size, height - size),
+        random(0 + height, height - size),
         random(-7, 7),
         random(-7, 7),
         randomRGB(),
@@ -89,7 +95,7 @@ while (balls.length < 25) {
 }
 
 function loop() {
-    ctx.fillStyle = `rgba(0, 0, 0, 0.25)`;
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
     ctx.fillRect(0, 0, width, height);
 
     for (const ball of balls) {
