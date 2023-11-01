@@ -26,6 +26,15 @@ class Shape {
     }
 }
 
+class EvilCircle extends Shape {
+    color = "white";
+    size = 10;
+
+    constructor (x, y) {
+        super(x, y, 20, 20);
+    }
+}
+
 class Ball extends Shape {
     exists = true;
 
