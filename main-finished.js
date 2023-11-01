@@ -32,6 +32,23 @@ class EvilCircle extends Shape {
 
     constructor (x, y) {
         super(x, y, 20, 20);
+
+        window.addEventListener('keydown', (event) => {
+            switch (event.key) {
+                case "a":
+                    this.x -= this.velX;
+                    break;
+                case "d":
+                    this.x += this.velX;
+                    break;
+                case "w":
+                    this.y -= this.velY;
+                    break;
+                case "s":
+                    this.y += this.velY;
+                    break;
+            }
+        });
     }
 }
 
